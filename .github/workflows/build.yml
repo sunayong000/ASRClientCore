@@ -28,15 +28,10 @@ jobs:
       - name: Setup MSBuild
         uses: microsoft/setup-msbuild@v2
 
-      - name: Restore NuGet packages
+      - name: Restore + Build Release|x86
         working-directory: ASRClientCore
         shell: cmd
-        run: dotnet restore ASRClientCore.sln
-
-      - name: Build Release|x86
-        working-directory: ASRClientCore
-        shell: cmd
-        run: msbuild ASRClientCore.sln /p:Configuration=Release /p:Platform=x86 /m
+        run: msbuild ASRClientCore.sln /t:Restore,Build /p:Configuration=Release /p:Platform=x86 /m
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
