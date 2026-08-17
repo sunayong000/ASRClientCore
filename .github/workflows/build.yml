@@ -28,6 +28,11 @@ jobs:
       - name: Setup MSBuild
         uses: microsoft/setup-msbuild@v2
 
+      - name: Restore NuGet packages
+        working-directory: ASRClientCore
+        shell: cmd
+        run: dotnet restore ASRClientCore.sln
+
       - name: Build Release|x86
         working-directory: ASRClientCore
         shell: cmd
