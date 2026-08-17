@@ -38,5 +38,6 @@ jobs:
         with:
           name: ASRClient-exe
           path: |
-            ASRClientCore/bin/Release/
-            ASRClientCore/AdbWinApi.dll
+            ASRClientCore/bin/x86/Release/net8.0-windows7.0/
+            ASRClientCore/Release/
+            ASRClientCore/*.dll
